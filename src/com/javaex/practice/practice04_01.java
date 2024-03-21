@@ -14,7 +14,7 @@ public class practice04_01 {
 			result = result + intArray[i];
 			
 		}
-      System.out.println(result);
+		System.out.println(result);
 	}
 
 }

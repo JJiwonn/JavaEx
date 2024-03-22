@@ -40,6 +40,7 @@ public class MethodEx {
 	    private static String getMessage() {
 	    	return "매개변수 없지만 리턴은 있는 메서드";
 	    }
+	    // 매개변수 X , 리턴 X
 	    private static void printMessage() {
 	    	// 매개변수 없고 리턴 없을 때 -> 리턴을 하지않아도 무방하기 때문에 void로 막아줘야한다.
 	      System.out.println("매개변수 없고, 리턴도 없는 메서드");

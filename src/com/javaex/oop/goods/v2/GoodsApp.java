@@ -5,30 +5,35 @@ public class GoodsApp {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
         Goods camera = new Goods();
-        camera.name = "nikon";
-        camera.price = 400_000;
+        camera.setName("nikon");
+        camera.setPrice(400_000);
         
         Goods notebook = new Goods();
-        notebook.name = "LG그램";
-        notebook.price = 900_000;
+        notebook.setName("LG그램");
+        notebook.setPrice(900_000);
         
         Goods mug = new Goods();
-        mug.name = "머그컵";
-        mug.price = 2_000;
+        mug.setName ("머그컵");
+        mug.setPrice(2_000);
         
         
-        // 상품 정보 출력
+        // 상품 정보 출력(getter 활용)
         System.out.printf("%s, %,d원%n", 
-        		camera.name,
-        		camera.price);
-        
-        System.out.printf("%s, %,d원%n", 
-        		notebook.name,
-        		notebook.price);
+        		camera.getName(),
+        		camera.getPrice());
         
         System.out.printf("%s, %,d원%n", 
-        		mug.name,
-        		mug.price);
+        		notebook.getName(),
+        		notebook.getPrice());
+        
+        System.out.printf("%s, %,d원%n", 
+        		mug.getName(),
+        		mug.getPrice());
+        
+        // 상품 정보 출력(매서드 활용)
+        camera.showInfo();
+        notebook.showInfo();
+        mug.showInfo();
 	}
 
 }

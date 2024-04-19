@@ -18,6 +18,6 @@ public abstract class Shape {
     // 추상 메서드
 	// ㄴ 추상 메서드는 구현문은 없고 추상문만 있다.
 	// ㄴ 추상 클래스를 상속 받은 클래스에서 반드시 구현해야한다.
-//	public abstract void draw(); 직접적인 상속관계에서 벗아나기에 주석처리
+	public abstract void draw(); 직접적인 상속관계에서 벗아나기에 주석처리
 	public abstract double area();
 }

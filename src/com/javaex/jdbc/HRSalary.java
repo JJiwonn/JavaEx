@@ -5,40 +5,46 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Scanner;
 
-
-public class SelectTest {
-
+public class HRSalary {
+	
 	public static void main(String[] args) {
 		String dburl = "jdbc:oracle:thin:@localhost:1521:xe";
 		String dbuser = "HR";
 		String dbpass = "hr";
 		
-		// Connection, Statement, ResultSet
-		// try - with - resources 문 (자동 자원 정리)
-		// AutoCloseable 인터페이스를 구현한 크래스들을 사용 가능
-		
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
 		
+		Scanner scanner = new Scanner(System.in);
+		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn =  DriverManager.getConnection(dburl,dbuser,dbpass);
+			
+			System.out.print("최소급여 최대급여:");
+			String keyword = scanner.nextLine();
+			
+			String[] input = keyword.trim().split(" ");
+			
 			stmt = conn.createStatement();
-//		    rs = null;
 		
-			String sql = "SELECT department_id, department_name FROM departments";
+			String sql = "SELECT first_name ||' ' || last_name, salary"
+					+ "	FROM employees"
+					+ "	WHERE salary > 2000 AND salary < 10000"
+					+ "	ORDER BY salary ASC";
+			System.out.println("Query: " + sql);
 			
 			rs = stmt.executeQuery(sql);  // DB Cursor 반환
 			
 			// ResultSet 순회
 			while(rs.next()) {
-				// getXXXX(컬럼순서) or getXXXX(컬럼 프로젝션 이름)
-				int deptId = rs.getInt(1); // re.getInt("department_id")
-				String deptName = rs.getString("department_name"); // rs.getString(2)
+				String name = rs.getString(1); 
+				int sal = rs.getInt(2); 
 				
-				System.out.printf("%d:%s%n", deptId, deptName);
+				System.out.printf("%s\t%d%n ", name, sal);
 			 }
 			}catch (ClassNotFoundException e) {
 				System.err.println("드라이버를 로드하지 못했습니다.");
@@ -62,9 +68,10 @@ public class SelectTest {
 				}catch (Exception e) {
 					
 				}
-				
+			
 				}
-		}
+		
+		scanner.close();
 	}
 
-
+}

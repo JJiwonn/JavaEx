@@ -9,8 +9,8 @@ package com.javaex.jdbc.dao;
 public class AuthorVO {
 	// 필드 
 	private Long authorId; // PK
-	private Long authorName;
-	private Long authorDesc;
+	private String authorName;
+	private String authorDesc;
 	
 	// 기본 생성자
 	public AuthorVO() {
@@ -19,15 +19,15 @@ public class AuthorVO {
 	
 	// 전체 필드를 세팅할 수 있는 생성자
 	public AuthorVO(Long authorId,
-					Long authorName,
-					Long authorDesc) {
+					String authorName,
+					String authorDesc) {
 		super();
 		this.authorId = authorId;
 		this.authorName = authorName;
 		this.authorDesc = authorDesc;
 	}
 
-	public AuthorVO(Long authorName, Long authorDesc) {
+	public AuthorVO(String authorName, String authorDesc) {
 		super();
 		this.authorName = authorName;
 		this.authorDesc = authorDesc;
@@ -42,19 +42,19 @@ public class AuthorVO {
 		this.authorId = authorId;
 	}
 
-	public Long getAuthorName() {
+	public String getAuthorName() {
 		return authorName;
 	}
 
-	public void setAuthorName(Long authorName) {
+	public void setAuthorName(String authorName) {
 		this.authorName = authorName;
 	}
 
-	public Long getAuthorDesc() {
+	public String getAuthorDesc() {
 		return authorDesc;
 	}
 
-	public void setAuthorDesc(Long authorDesc) {
+	public void setAuthorDesc(String authorDesc) {
 		this.authorDesc = authorDesc;
 	}
 	// toString or equals는 오버라이드 하기도 한다
